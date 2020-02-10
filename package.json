@@ -1,0 +1,93 @@
+{
+  "name": "@system76/markdown",
+  "version": "0.0.0-development",
+  "description": "System76 markdown parsing for the web",
+  "author": "System76 <hosting@system76.com> (https://system76.com)",
+  "license": "GPL-3.0",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
+  "source": "src/index.js",
+  "scripts": {
+    "start": "start-storybook --docs",
+    "build": "npm run build:library && npm run build:storybook",
+    "build:library": "NODE_ENV=production rollup -c",
+    "build:storybook": "build-storybook --docs -o docs",
+    "lint": "npm run lint:js",
+    "lint:fix": "npm run lint:js:fix",
+    "lint:js": "eslint --ignore-path .gitignore .",
+    "lint:js:fix": "eslint --fix --ignore-path .gitignore .",
+    "test": "ava",
+    "commit": "git-cz",
+    "release": "semantic-release"
+  },
+  "homepage": "https://system76.github.io/markdown/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/system76/markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/system76/markdown/issues"
+  },
+  "keywords": [
+    "parser",
+    "markdown",
+    "frontend",
+    "system76"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "markdown-it": "^10.0.0",
+    "markdown-it-kbd": "^2.0.0",
+    "markdown-it-link-attributes": "^3.0.0"
+  },
+  "devDependencies": {
+    "@ava/babel": "^1.0.1",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/preset-env": "^7.8.4",
+    "@storybook/addon-docs": "5.3.12",
+    "@storybook/html": "5.3.12",
+    "@system76/design": "^5.0.0",
+    "@system76/eslint-config": "^3.0.0",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "ava": "^3.3.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "commitizen": "^4.0.3",
+    "css-loader": "^3.4.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "require-extension-hooks": "^0.3.3",
+    "require-extension-hooks-babel": "^1.0.0",
+    "rollup": "^1.31.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "semantic-release": "^17.0.2"
+  },
+  "ava": {
+    "babel": {
+      "compileAsTests": [
+        "src/**/*",
+        "test/_helpers.js"
+      ]
+    },
+    "snapshotDir": "test/snapshots"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

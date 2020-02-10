@@ -1,0 +1,89 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Vue Directive" />
+
+# Directive
+
+This package includes a Vue directive for easy integration with your project.
+Simply include it in your component, and write some markdown!
+
+```vue
+<template>
+  <article v-markdown.full>
+    # This will be parsed as full markdown
+
+    So type away!
+  </article>
+</template>
+
+<script>
+  import { directive as markdownDirective } from '@system76/markdown'
+
+  export default {
+    directives: {
+      markdown: markdownDirective
+    }
+  }
+</script>
+```
+
+## Using
+
+There are multiple ways you can use this directive. You can pass in text as a
+variable like so:
+
+```vue
+<template>
+  <article v-markdown.full="markdownText" />
+</template>
+```
+
+or you can use it to parse some inline text like so:
+
+```vue
+<template>
+  <article v-markdown.full>
+    # This will be parsed as full markdown
+
+    So type away!
+  </article>
+</template>
+```
+
+## Options
+
+You can also parse inline markdown if you do not include the `.full` modifier.
+
+```vue
+<template>
+  <p v-markdown="bodyText" />
+</template>
+```
+
+would parse into this:
+
+```vue
+<template>
+  <p>this is <strong>some</strong> body text</p>
+</template>
+```
+
+# Server Directive
+
+If you are using Vue for SSR, you will also want to include the server directive
+to ensure the markdown gets parsed correctly on the server. The easiest way to
+do this is with Nuxt. Just include it in your `nuxt.config.js` file like so:
+
+```js
+import { serverDirective as serverMarkdownDirective } from '@system76/markdown'
+
+export default {
+  render: {
+    bundleRenderer: {
+      directives: {
+        markdown: serverMarkdownDirective
+      }
+    }
+  }
+}
+```
