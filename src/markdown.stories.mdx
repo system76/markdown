@@ -13,13 +13,13 @@ Links will automatically be converted when detected in markdown. If it is an
 http or https link, it will automatically get `target="_blank"` and
 `rel="noopener"` attributes.
 
-```
+```markdown
 This is an https://example.com link
 ```
 
 becomes
 
-```
+```html
 This is an <a href="https://example.com" target="_blank" rel="noopener">example.com</a> link
 ```
 
@@ -28,13 +28,13 @@ This is an <a href="https://example.com" target="_blank" rel="noopener">example.
 We will automatically convert markdown that has `[[` and `]]` in it to `<kbd>`
 and `</kbd>` keys.
 
-```
+```markdown
 This is a [[ctrl]] key.
 ```
 
 becomes
 
-```
+```html
 This is a <kbd>ctrl</kbd> key.
 ```
 
@@ -42,12 +42,12 @@ This is a <kbd>ctrl</kbd> key.
 
 Normal single and double quotes will be converted to proper quotes when parsed.
 
-```
+```markdown
 "We"
 ```
 
 becomes
 
-```
+```html
 “We”
 ```

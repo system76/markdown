@@ -7,7 +7,7 @@ import { Meta } from '@storybook/addon-docs/blocks'
 This package includes a Vue directive for easy integration with your project.
 Simply include it in your component, and write some markdown!
 
-```vue
+```html
 <template>
   <article v-markdown.full>
     # This will be parsed as full markdown
@@ -32,7 +32,7 @@ Simply include it in your component, and write some markdown!
 There are multiple ways you can use this directive. You can pass in text as a
 variable like so:
 
-```vue
+```html
 <template>
   <article v-markdown.full="markdownText" />
 </template>
@@ -40,7 +40,7 @@ variable like so:
 
 or you can use it to parse some inline text like so:
 
-```vue
+```html
 <template>
   <article v-markdown.full>
     # This will be parsed as full markdown
@@ -54,7 +54,7 @@ or you can use it to parse some inline text like so:
 
 You can also parse inline markdown if you do not include the `.full` modifier.
 
-```vue
+```html
 <template>
   <p v-markdown="bodyText" />
 </template>
@@ -62,7 +62,7 @@ You can also parse inline markdown if you do not include the `.full` modifier.
 
 would parse into this:
 
-```vue
+```html
 <template>
   <p>this is <strong>some</strong> body text</p>
 </template>
